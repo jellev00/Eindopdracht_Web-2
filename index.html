@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sticky notes</title>
+    <script src="scripts/code.js"></script>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+<div id="controls">
+    <label for="cbxColor">Color: </label>
+    <select id="cbxColor">
+        <!--
+         Dit moet je toevoegen via Javascript op basis van de inhoud van het 'colors' array :
+
+        <option>LightGrey</option>
+        <option>PaleGreen</option>
+        <option>LightBlue</option>
+        <option>Yellow</option>
+
+        -->
+    </select>
+    <label for="txtDescription">Description: </label>
+    <input type="text" id="txtDescription" placeholder="Enter your note here"/>
+    <input id="btnAdd" type="button" value="Add note">
+    <!--
+    Dit moet je toevoegen via Javascript :
+
+    <input id="btnClear" type="button" value="Remove all notes">
+
+    -->
+</div>
+<div id="countInfo">
+    <p>Number of notes is <span id="txtCountNotes"></span></p>
+</div>
+<div id="notes">
+    <!--
+    Zo zien de notes eruit die jouw Javascript code moet toevoegen :
+
+    <div class="note">
+        <h1>eerste note</h1>
+        <p>08:16:40</p>
+    </div>
+
+    <div class="note">
+        <h1>tweede note</h1>
+        <p>08:16:45</p>
+    </div>
+
+    Denk eraan dat elke note ook een achtergrondkleur moet krijgen!
+
+    -->
+</div>
+</body>
+</html>
