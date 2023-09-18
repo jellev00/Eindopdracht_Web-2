@@ -26,6 +26,7 @@ const createNote = () => {
 																															</div>`);
 
 	Colors.checked = false;
+	txtTitle.value = "";
 	txtDescription.value = "";
 	updateCountInfo();
 
