@@ -2,27 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sticky notes</title>
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.png">
+    <title>StickIt</title>
     <script src="scripts/code.js"></script>
+    <script src="https://kit.fontawesome.com/6b6c91eada.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
 <div id="controls">
-    <label for="cbxColor">Color: </label>
-    <select id="cbxColor">
-        <!--
-         Dit moet je toevoegen via Javascript op basis van de inhoud van het 'colors' array :
-
-        <option>LightGrey</option>
-        <option>PaleGreen</option>
-        <option>LightBlue</option>
-        <option>Yellow</option>
-
-        -->
-    </select>
-    <label for="txtDescription">Description: </label>
+    <input type="radio" name="options" value="#BFFFC3" id="radio1" class="green">
+    <input type="radio" name="options" value="#A1EEFE" id="radio2" class="blue">
+    <input type="radio" name="options" value="#FDDE9E" id="radio3" class="yellow">
+    <input type="radio" name="options" value="#FFC3C3" id="radio4" class="red">
+    <input type="text" id="txtTitle" placeholder="Enter your note tilte here"/>
     <input type="text" id="txtDescription" placeholder="Enter your note here"/>
-    <input id="btnAdd" type="button" value="Add note">
+    <button id="btnAdd">
+        <i class="fa-solid fa-plus"></i>
+    </button>
     <!--
     Dit moet je toevoegen via Javascript :
 

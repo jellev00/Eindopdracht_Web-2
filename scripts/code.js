@@ -1,16 +1,6 @@
-// Dit is het array waarmee je de dropdown box moet opvullen (i.e. het <select> element)
-const colors=["LightGrey","PaleGreen","LightBlue","Yellow"];
-
-// NIET VERGETEN : roep de setup functie op zodra de browser klaar is met het inladen van de pagina.
-
 const setup = () => {
-	let cbxColor = document.getElementById("cbxColor");
-	for (let i = 0; i < colors.length; i++){
-		cbxColor.insertAdjacentHTML("beforeend", `<option>${colors[i]}</option>`);
-	}
-
 	let controls = document.getElementById("controls");
-	controls.insertAdjacentHTML("beforeend", '<input id="btnClear" type="button" value="Remove all notes">');
+	controls.insertAdjacentHTML("beforeend", '<button id="btnClear"><i class="fa-solid fa-trash"></i> Remove all notes</button>');
 
 	let btnAdd = document.getElementById("btnAdd");
 	btnAdd.addEventListener("click", createNote);
@@ -21,14 +11,21 @@ const setup = () => {
 
 const createNote = () => {
 	let notes = document.getElementById("notes");
+	let txtTitle = document.getElementById("txtTitle");
 	let txtDescription = document.getElementById("txtDescription");
-	let cbxColor = document.getElementById("cbxColor");
+	let color;
+	let Colors = document.querySelector('input[name="options"]:checked');
+	if (Colors != null){
+		color = Colors.value;
+	};
 	const iso=new Date().toISOString().substr(11,8);
-	notes.insertAdjacentHTML("beforeend", `<div class="note" style="background-color: ${cbxColor.value};">
-																																<h1>${txtDescription.value}</h1>
-																																<p>${iso}</p>
+	notes.insertAdjacentHTML("beforeend", `<div class="note" style="background-color: ${color};">
+																																<h1>${txtTitle.value}</h1>
+																																<p>${txtDescription.value}</p>
+																																<p class="time">${iso}</p>
 																															</div>`);
 
+	Colors.checked = false;
 	txtDescription.value = "";
 	updateCountInfo();
 
@@ -39,9 +36,6 @@ const createNote = () => {
 };
 
 const updateCountInfo = () => {
-	// deze functie past de teller aan
-	// en (indien nodig) toont/verbergt ze ook de ganse informatie regel
-
 	let countInfo = document.getElementById("countInfo");
 	let txtCountNotes = document.getElementById("txtCountNotes");
 	let note = document.getElementsByClassName("note");
@@ -55,9 +49,7 @@ const updateCountInfo = () => {
 };
 
 const removeNote = (event) => {
-    // voor deze functie mag je zelf kiezen welke parameter(s) je nodig hebt,
-    // dit hangt nml. af van hoe je de event handling aanpakt
-		let notes = document.getElementById("notes");
+	let notes = document.getElementById("notes");
 		let selectedNote = event.target;
 
 		let parentOfSelectedNode = selectedNote.parentNode;
@@ -73,9 +65,6 @@ const removeNote = (event) => {
 };
 
 const removeAllNotes = () => {
-	// voor deze functie mag je zelf kiezen welke parameter(s) je nodig hebt,
-	// dit hangt nml. af van hoe je de event handling aanpakt
-
 	let note = document.getElementsByClassName("note");
 	let notes = document.getElementById("notes");
 
